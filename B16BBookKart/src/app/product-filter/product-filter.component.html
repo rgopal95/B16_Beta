@@ -1,0 +1,27 @@
+<h2>Books</h2>
+<div class="link">
+  <a (click)="filter('')">All Category</a><br />
+  <a (click)="filter('Biography')">Biography</a><br />
+  <a (click)="filter('Fiction')">Fiction</a><br />
+  <a (click)="filter('Mystery')">Mystery</a><br />
+  <a (click)="filter('Fantasy')">Fantasy</a><br />
+  <a (click)="filter('Romance')">Romance</a><br />
+</div>
+
+<div class="form-group mb-4">
+  <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search" />
+</div>
+
+<!-- dummy display -->
+
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let item of filterCategory | keyFilter:searchText">
+      <div class="card col-md-3">
+        <h5>Title:{{ item.title }}</h5>
+        <h5>Category:{{ item.category }}</h5>
+        <h5>Price:{{ item.price }}</h5>
+      </div>
+    </ng-container>
+  </div>
+</div>
