@@ -7,6 +7,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductFilterComponent } from './product-filter/product-filter.component';
 import { KeyFilterPipe } from './pipe/key-filter.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDividerModule} from '@angular/material/divider';
+import { MatListModule} from '@angular/material/list';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -16,8 +21,8 @@ import { KeyFilterPipe } from './pipe/key-filter.pipe';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,HttpClientModule,FormsModule
-    
+    AppRoutingModule,HttpClientModule,FormsModule, BrowserAnimationsModule,
+    MatDividerModule,MatListModule,MatSliderModule,MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
