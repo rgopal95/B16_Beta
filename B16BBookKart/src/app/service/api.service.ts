@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { map, shareReplay } from 'rxjs/operators';
 import { Book } from '../models/book';
 
@@ -9,13 +11,13 @@ import { Book } from '../models/book';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  // books$ = this.getProduct().pipe(shareReplay(1));
+  bookList$=this.getProduct();
 
-  getProduct() {
+  getProduct() :Observable<any>{
     return this.http
-      .get<any>('https://bookcart.azurewebsites.net/api/book/')
+      .get<Book[]>('https://bookcart.azurewebsites.net/api/book/')
       .pipe(
-        map((res: any) => {
+        map((res: Book[]) => {
           return res;
         })
       );

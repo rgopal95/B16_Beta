@@ -1,15 +1,35 @@
-.mat-nav-list{
-    display:block;
-    border:1px solid;
-    width:200px;
-    }
+.mat-nav-list {
+  display: block;
+  border: 1px ;
+  width: 200px;
+}
+.mat-list-item:active {
+  background-color: #fb641b;
+}
 
-input{
-    display:block;
-    border:1px solid;
-    width: 200px;
+// $color-active: #fb641b;
+
+// .is-active {
+//   background-color: red;
+// }
+
+.mat-card{
+    display: block;
+  border: 1px solid;
+  width: 200px;
+  justify-content: center;
+}
+
+.mat-card-title{
+  background-color: rgb(247, 107, 172);
+}
+
+input {
+  display: block;
+  border: 1px solid;
+  width: 200px;
 }
 
 .active-list-item {
-    color: #3F51B5 !important; /* Note: You could also use a custom theme */
-  }
+  color: #3f51b5 !important; /* Note: You could also use a custom theme */
+}
