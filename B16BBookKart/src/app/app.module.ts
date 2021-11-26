@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
-import { ToasterMessageComponent } from './Message/toaster-message/toaster-message.component';
+import { ToasterMessageComponent } from './toaster-message/toaster-message.component';
 
 @NgModule({
   declarations: [
