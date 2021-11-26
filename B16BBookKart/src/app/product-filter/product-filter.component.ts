@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-import { MatSliderChange } from '@angular/material/slider';
-import { Observable } from 'rxjs';
+// import { MatSliderChange } from '@angular/material/slider';
+import { Observable, Subscription } from 'rxjs';
 import { Book } from '../models/book';
 import { ApiService } from '../service/api.service';
 
@@ -10,10 +10,11 @@ import { ApiService } from '../service/api.service';
   styleUrls: ['./product-filter.component.scss'],
 })
 export class ProductFilterComponent implements OnInit {
+
   public bookList: Book[] = [];
   public filterCategory: Book[] = [];
   public filterPrice: Book[] = [];
-  priceRange = Number.MAX_SAFE_INTEGER;
+  // priceRange = Number.MAX_SAFE_INTEGER;
 
   public searchText: any;
   // public filterData: any;
@@ -41,22 +42,21 @@ export class ProductFilterComponent implements OnInit {
     this.api.bookList$.subscribe((res) => {
       this.bookList = res;
       this.filterCategory = this.bookList;
-      this.filterPrice = this.bookList;
+      // this.filterPrice = this.bookList;
     });
   }
 
-  filteredProduct(value: number) {
-    this.priceRange = value;
-    // this.filterByPrice();
-  }
+  // filteredProduct(value: number) {
+  //   this.priceRange = value;
+  //   // this.filterByPrice();
+  // }
 
   filterByPrice(event?: any) {
 const max =    event.value;
 const min = event.source._min;
 
 this.filterCategory = this.bookList
-.filter((p) => p.price <= max && p.price >=min)
- ;
+.filter((p) => p.price <= max && p.price >=min);
     // this.filterPrice = this.bookList
     //   .filter((p) => p.price <= this.priceRange)
     //   .slice();
@@ -85,9 +85,6 @@ this.filterCategory = this.bookList
     return value;
   }
 
-  // $scope.priceFiltering=function(){
-    
-  // }
 
   onChange(event: any) {
     this.filterByPrice(event);
@@ -110,5 +107,5 @@ this.filterCategory = this.bookList
   // onSliderChange(val:any):void {
   //   this.filterData=this.bookList.filter((obj: { price: number; })=>obj.price >=val.lower && obj.price <=val.upper);
   //   console.log();
-  // }
+  //
 }
