@@ -10,15 +10,12 @@ import { ApiService } from '../service/api.service';
   styleUrls: ['./product-filter.component.scss'],
 })
 export class ProductFilterComponent implements OnInit {
-
   public bookList: Book[] = [];
   public filterCategory: Book[] = [];
   public filterPrice: Book[] = [];
-  // priceRange = Number.MAX_SAFE_INTEGER;
 
   public searchText: any;
   // public filterData: any;
-
 
   @Output()
   priceValue = new EventEmitter<number>(true);
@@ -42,25 +39,20 @@ export class ProductFilterComponent implements OnInit {
     this.api.bookList$.subscribe((res) => {
       this.bookList = res;
       this.filterCategory = this.bookList;
-      // this.filterPrice = this.bookList;
     });
   }
 
-  // filteredProduct(value: number) {
-  //   this.priceRange = value;
-  //   // this.filterByPrice();
-  // }
-
   filterByPrice(event?: any) {
-const max =    event.value;
-const min = event.source._min;
+    const max = event.value;
+    const min = event.source._min;
 
-this.filterCategory = this.bookList
-.filter((p) => p.price <= max && p.price >=min);
+    this.filterCategory = this.bookList.filter(
+      (p) => p.price <= max && p.price >= min
+    );
     // this.filterPrice = this.bookList
     //   .filter((p) => p.price <= this.priceRange)
     //   .slice();
-      // this.bookList=this.filterPrice;
+    // this.bookList=this.filterPrice;
   }
 
   filterCat(category: string) {
@@ -84,7 +76,6 @@ this.filterCategory = this.bookList
     }
     return value;
   }
-
 
   onChange(event: any) {
     this.filterByPrice(event);
