@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
-// import { MatSliderChange } from '@angular/material/slider';
 import { Observable, Subscription } from 'rxjs';
 import { Book } from '../models/book';
 import { ApiService } from '../service/api.service';
@@ -15,7 +14,6 @@ export class ProductFilterComponent implements OnInit {
   public filterPrice: Book[] = [];
 
   public searchText: any;
-  // public filterData: any;
 
   @Output()
   priceValue = new EventEmitter<number>(true);
@@ -49,10 +47,6 @@ export class ProductFilterComponent implements OnInit {
     this.filterCategory = this.bookList.filter(
       (p) => p.price <= max && p.price >= min
     );
-    // this.filterPrice = this.bookList
-    //   .filter((p) => p.price <= this.priceRange)
-    //   .slice();
-    // this.bookList=this.filterPrice;
   }
 
   filterCat(category: string) {
@@ -94,9 +88,4 @@ export class ProductFilterComponent implements OnInit {
       return prev.price > curr.price ? prev : curr;
     }).price;
   }
-
-  // onSliderChange(val:any):void {
-  //   this.filterData=this.bookList.filter((obj: { price: number; })=>obj.price >=val.lower && obj.price <=val.upper);
-  //   console.log();
-  //
 }

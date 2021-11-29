@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-import { map, shareReplay } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Book } from '../models/book';
 
 @Injectable({
@@ -11,9 +10,9 @@ import { Book } from '../models/book';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  bookList$=this.getProduct();
+  bookList$ = this.getProduct();
 
-  getProduct() :Observable<any>{
+  getProduct(): Observable<any> {
     return this.http
       .get<Book[]>('https://bookcart.azurewebsites.net/api/book/')
       .pipe(
