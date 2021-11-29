@@ -15,10 +15,5 @@ export class ApiService {
   getProduct(): Observable<any> {
     return this.http
       .get<Book[]>('https://bookcart.azurewebsites.net/api/book/')
-      .pipe(
-        map((res: Book[]) => {
-          return res;
-        })
-      );
   }
 }
